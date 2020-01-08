@@ -24,11 +24,17 @@ def get_filters():
 
     #The following loop will get the user's choice of which city to display results.
     while True:
-        city = input('Would you like to see data for Chicago, New York City, or Washington: ').lower()
-        if city not in CITY_DATA.keys():
+        city = input('Would you like to see data for Chicago/Ch, New York City/NYC, or Washington/WA: ').lower()
+        if city not in CITY_DATA.keys() and city not in ['ch', 'nyc', 'wa']:
             print('this city is not available, please enter one of the three provided cities')
             continue
         else:
+            if city == 'ch':
+                city = 'chicago'
+            elif city == 'nyc':
+                city = 'new york city'
+            elif city == 'wa':
+                city = 'washington'
             city = CITY_DATA[city]
             break
 
