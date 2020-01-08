@@ -25,6 +25,9 @@
 		Python3
 		Pandas
 
+###Deployment notes
+	Please provide input as provided in the input message while running the program
+
 ### Credits and References
 	Project references and resources:
 		1. I have used the project template provided in the project section
