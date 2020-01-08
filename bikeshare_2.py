@@ -1,13 +1,16 @@
+#Import required packages
 import time
 import pandas as pd
 import numpy as np
 
+#dictionary of cities corresponding to their data files
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 months = {'january': 1, 'february': 2, 'march': 3, 'april': 4, 'may': 5, 'june': 6}
 days = {'monday': 0, 'tuesday': 1, 'wednesday': 2, 'thursday': 3, 'friday': 4, 'saturday': 5, 'sunday': 6}
 
+#The following fuction will get the user choices for filters: city, month, and day.
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -19,17 +22,24 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    #The following loop will get the user's choice of which city to display results.
     while True:
-        city = input('Would you like to see data for Chicago, New York City, or Washington: ').lower()
-        if city not in CITY_DATA.keys():
+        #New Edit gives the user more choices to pick the city to ease typing
+        city = input('Would you like to see data for Chicago/Ch, New York City/NYC, or Washington/WA: ').lower()
+        if city not in CITY_DATA.keys() and city not in ['ch', 'nyc', 'wa']:
             print('this city is not available, please enter one of the three provided cities')
             continue
         else:
+            if city == 'ch':
+                city = 'chicago'
+            elif city == 'nyc':
+                city = 'new york city'
+            elif city == 'wa':
+                city = 'washington'
             city = CITY_DATA[city]
             break
 
-    #Specify preferred get_filters:
+    #The following loop will get the user choice whether to use filters or display unfiltered results.
     while True:
         filter = input('Would you like to filter the data by month or day, or not at all? \nPlease chose(yes/no): ').lower()
         if filter == 'yes':
@@ -42,7 +52,7 @@ def get_filters():
         break
 
 
-    # get user input for month (all, january, february, ... , june)
+    #the following loop will get the user choice for filters: whether by month, by day, or include both.
     while True:
         if filter:
             choice = input('What filter do you want to apply? please choose (month/day/both) ').lower()
@@ -83,13 +93,13 @@ def get_filters():
             day = days
             month = months
             break
-    # get user input for day of week (all, monday, tuesday, ... sunday)
 
-
+    #Print Separator
     print('-'*40)
+    #Return chosen values
     return city, month, day
 
-
+#The following function will load the data from the provided data files
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -114,7 +124,7 @@ def load_data(city, month, day):
         df = df[df['month'] == month]
     return df
 
-
+#The following function will display time statistics of most frequent schedules.
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
@@ -138,7 +148,7 @@ def time_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+#The following function will display station statistics of most frequent rides.
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -158,7 +168,7 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+#The following function will display duration statistics of travel time.
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -179,7 +189,7 @@ def trip_duration_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+#The following function will display user info statistics of most common user type and gender if applicable.
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
@@ -196,6 +206,7 @@ def user_stats(df):
         print('\nCounts for each gender is:\n{}'.format(user_gender))
     except:
         print('\nCounts for each gender is: No data available.')
+        #No gender data available for washington
 
 
     # Display earliest, most recent, and most common year of birth
