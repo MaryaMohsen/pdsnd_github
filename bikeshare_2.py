@@ -24,6 +24,7 @@ def get_filters():
 
     #The following loop will get the user's choice of which city to display results.
     while True:
+        #New Edit gives the user more choices to pick the city to ease typing
         city = input('Would you like to see data for Chicago/Ch, New York City/NYC, or Washington/WA: ').lower()
         if city not in CITY_DATA.keys() and city not in ['ch', 'nyc', 'wa']:
             print('this city is not available, please enter one of the three provided cities')
