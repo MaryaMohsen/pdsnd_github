@@ -11,7 +11,33 @@
 	This program provides statistical analysis for US bikeshare data among three states, Chicago, New York City, and Washington.
 	The three data files are included for reference
 
-
+	Program Features:
+		This program filters data to which the statistical results are displayed accoprding to user choice by:
+			1-Month or all months 
+				Data available for January, February, March, April, May, June
+			2-Day of week or all days
+				Data available for Sunday, Monday, tuesday, Wednesday, Thursday, Friday, Saturday
+			3-Both Month and Day
+		This program will display results for:
+			1-Time statistics
+				a-most common month
+				b-most common day of week
+				c-most common start hour
+			2-Station statistics:
+				a-most common start station
+				b-most common end station
+				c-most common station combination
+			3-Duration statistics:
+				a-total travel time
+				b-mean travel time
+			4-User statistics:
+				a-user type count: customer or subscriber
+				b-user gender count
+					gender data is not available for washington
+				c-oldest user birth year
+				d-youngest user birth year
+				e-most common user birth year
+			
 ### Files and Requirements
 	This repository contains:
 		Data files:
