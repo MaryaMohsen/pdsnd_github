@@ -25,6 +25,17 @@
 		Python3
 		Pandas
 
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+### Credits and References
+	Project references and resources:
+		1. I have used the project template provided in the project section
+		2. Atom text editor to edit the code
+		3. python interpreter to test code snippets
+		4. Stackoverflow
+		5. The Python Standard library
+		6. Pandas doctumentation
+	
+	Version control references:
+		https://git-scm.com/doc 
+		https://github.com/salimt/version-control/blob/master/github-git-cheat-sheet.pdf 
+		https://www.atlassian.com/git/tutorials 
+		https://udacity.github.io/git-styleguide/ 
